@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {addLine, delLine} from "../../modules/example";
 
-class Example extends Component {
+class ExampleComponent extends Component {
     render() {
         const { lines } = this.props;
         const { addLine, delLine } = this.props;
@@ -49,4 +49,4 @@ const mapDispatchToProps = (dispatch) =>
     };
 };
 
-export const ExampleContainer = connect(mapStateToProps, mapDispatchToProps)(Example);
+export const Example = connect(mapStateToProps, mapDispatchToProps)(ExampleComponent);

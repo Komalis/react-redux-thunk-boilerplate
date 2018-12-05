@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import store from "./store";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {ExampleContainer} from "./containers/Example";
+import {BrowserRouter, Switch} from "react-router-dom";
+import {Example} from "./containers/Example";
+import {AuthenticatedRoute} from "./containers/AuthenticatedRoute";
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={ExampleContainer}/>
+                <AuthenticatedRoute exact path="/" restrictedRole={["ROLE_USER"]} component={Example}/>
             </Switch>
         </BrowserRouter>
     </Provider>,
